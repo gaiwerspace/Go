@@ -1,0 +1,1 @@
+DROP TABLE transfers; DROP TABLE vaults; DROP TABLE keepers;

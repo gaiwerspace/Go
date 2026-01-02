@@ -1,0 +1,6 @@
+scalar Time
+type Keeper { id: ID! name: String! vaults: [Vault!]! totalBalance: Float! }
+type Vault { id: ID! keeperID: ID! balance: Float! createdAt: Time! }
+type Transfer { id: ID! sourceVaultID: ID! destinationVaultID: ID! amount: Float! createdAt: Time! }
+type Query { keepers: [Keeper!]! keeper(id: ID!): Keeper vault(id: ID!): Vault vaultHistory(vaultID: ID!): [Transfer!]! }
+type Mutation { createVault(keeperID: ID!, initialDeposit: Float!): Vault! transferGold(sourceVaultID: ID!, destinationVaultID: ID!, amount: Float!): Transfer! }

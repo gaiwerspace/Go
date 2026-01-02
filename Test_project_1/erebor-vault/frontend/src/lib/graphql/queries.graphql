@@ -1,0 +1,5 @@
+query GetKeepers{keepers{id name totalBalance}}
+query GetKeeper($id:ID!){keeper(id:$id){id name vaults{id balance createdAt}totalBalance}}
+query GetVaultHistory($vaultID:ID!){vaultHistory(vaultID:$vaultID){id amount sourceVaultID destinationVaultID createdAt}}
+mutation CreateVault($keeperID:ID!,$initialDeposit:Float!){createVault(keeperID:$keeperID,initialDeposit:$initialDeposit){id keeperID balance createdAt}}
+mutation TransferGold($sourceVaultID:ID!,$destinationVaultID:ID!,$amount:Float!){transferGold(sourceVaultID:$sourceVaultID,destinationVaultID:$destinationVaultID,amount:$amount){id amount createdAt}}
